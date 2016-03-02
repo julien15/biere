@@ -3,6 +3,7 @@
 from bottle import  run, request,template,post,route,error
 import json
 import time
+import os
 #fonction permettant d'ouvrir la page d'accueil, principalement du html et css
 @route('/salon')
 def formulaire():
@@ -1048,4 +1049,4 @@ def lien():
         </body>
         </html>'''
     return r
-run(host='localhost', port=8088, reloader=True)
+run(host='0.0.0.0', port=int(os.environ.get('PORT', 5005)))
